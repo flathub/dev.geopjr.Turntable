@@ -29,6 +29,7 @@ finish-args:
   - --filesystem=/var/lib/flatpak:ro
   - --filesystem=xdg-data/applications:ro
   - --filesystem=/var/lib/snapd:ro
+  - --filesystem=~/.var/app/com.github.taiko2k.tauonmb/cache/TauonMusicBox/:ro
 cleanup:
   - /include
   - /lib/pkgconfig
@@ -50,8 +51,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Turntable.git
-        tag: v0.3.0
-        commit: 1f544cc0bed78dfe7d9a76c63ede7f3f26bc9844
+        tag: v0.3.2
+        commit: 3193fbfb2e0d1a3b7a9b08e0c82d604caa97f485
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
