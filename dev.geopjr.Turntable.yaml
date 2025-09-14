@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Turntable
 runtime: org.gnome.Platform
-runtime-version: '48'
+runtime-version: '49'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Turntable
 finish-args:
@@ -51,8 +51,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Turntable.git
-        tag: v0.3.3
-        commit: cee5c4ebbc4cdc614ae5116a348bb9340c1581d8
+        tag: v0.4.0
+        commit: 2a6e07e5e2029cbe44e1fe6c110963275b1a9b8b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
