@@ -2,6 +2,9 @@ app-id: dev.geopjr.Turntable
 runtime: org.gnome.Platform
 runtime-version: '48'
 sdk: org.gnome.Sdk
+# until 49
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: dev.geopjr.Turntable
 finish-args:
   - --device=dri
@@ -42,6 +45,33 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  # until 49
+  - name: glycin-loaders
+    buildsystem: meson
+    build-options:
+      append-path: /usr/lib/sdk/rust-stable/bin
+      env:
+        CARGO_NET_OFFLINE: 'true'
+    config-opts:
+      - -Dloaders=glycin-image-rs,glycin-heif,glycin-jpeg2000
+      - -Dlibglycin=true
+      - -Dlibglycin-gtk4=true
+      - -Dvapi=true
+      - -Dintrospection=true
+      - -Dglycin-loaders=true
+      - -Dglycin-thumbnailer=false
+      - -Dtests=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/glycin/2.0/glycin-2.0.0.tar.xz
+        sha256: e39c3ca4f5bd6905f19f090456940650c8de1f217d2edb1f46ee17e04e7ae502
+        x-checker-data:
+          type: gnome
+          name: glycin
+      - cargo-sources.json
+      - type: shell
+        commands:
+          - install -Dpm0644 cargo/config .cargo/config.toml
   - name: Turntable
     buildsystem: meson
     config-opts:
@@ -51,8 +81,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Turntable.git
-        tag: v0.3.3
-        commit: cee5c4ebbc4cdc614ae5116a348bb9340c1581d8
+        tag: v0.4.0
+        commit: 2a6e07e5e2029cbe44e1fe6c110963275b1a9b8b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
