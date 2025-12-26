@@ -45,6 +45,21 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - -Ddocs=false
+      - -Dtests=false
+      - -Dbackend-gtk4=enabled
+    sources:
+      - type: archive
+        url: https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz
+        sha256: de801ee349ed3c255a9af3c01b1a401fab5b3fc1c35eb2fd7dfb35d4b8194d7f
+        x-checker-data:
+          type: anitya
+          project-id: 230124
+          stable-only: true
+          url-template: https://github.com/flatpak/libportal/releases/download/$version/libportal-$version.tar.xz
   - name: Turntable
     buildsystem: meson
     config-opts:
@@ -54,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Turntable.git
-        tag: v0.4.0
-        commit: 2a6e07e5e2029cbe44e1fe6c110963275b1a9b8b
+        tag: v0.5.0
+        commit: 9f2dd3fb84c26c169818b2b21f4656727c09d7b6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
