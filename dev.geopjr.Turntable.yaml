@@ -69,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/GeopJr/Turntable.git
-        tag: v0.5.0
-        commit: 9f2dd3fb84c26c169818b2b21f4656727c09d7b6
+        tag: v0.5.1
+        commit: 87d2b0b12d277728284ac1d1e21d3539da30d198
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
