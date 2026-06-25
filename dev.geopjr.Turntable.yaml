@@ -34,7 +34,7 @@ finish-args:
   - --filesystem=/var/lib/snapd:ro
   - --filesystem=~/.var/app/com.github.taiko2k.tauonmb/cache/TauonMusicBox/:ro
   - --filesystem=~/.var/app/io.m51.Gelly/cache/io.m51.Gelly/album-art/:ro
-  - --filesystem=~/.var/app/com.pocoguy.Muse/cache/mixtapes/
+  - --filesystem=~/.var/app/com.pocoguy.Muse/cache/mixtapes/:ro
 cleanup:
   - /include
   - /lib/girepository-1.0
