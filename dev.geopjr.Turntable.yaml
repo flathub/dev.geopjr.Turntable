@@ -1,6 +1,6 @@
 app-id: dev.geopjr.Turntable
 runtime: org.gnome.Platform
-runtime-version: '50'
+runtime-version: '51'
 sdk: org.gnome.Sdk
 command: dev.geopjr.Turntable
 finish-args:
@@ -42,21 +42,6 @@ cleanup:
   - /share/gir-1.0
   - /share/vala
 modules:
-  - name: libportal
-    buildsystem: meson
-    config-opts:
-      - -Ddocs=false
-      - -Dtests=false
-      - -Dbackend-gtk4=enabled
-    sources:
-      - type: archive
-        url: https://github.com/flatpak/libportal/releases/download/0.11.0/libportal-0.11.0.tar.xz
-        sha256: abb9e452a1c372133bd3eb8f0bb30d07b2d0a8fb02001c4155cf287555db4040
-        x-checker-data:
-          type: anitya
-          project-id: 230124
-          stable-only: true
-          url-template: https://github.com/flatpak/libportal/releases/download/$version/libportal-$version.tar.xz
   - name: Turntable
     buildsystem: meson
     config-opts:
